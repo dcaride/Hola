@@ -1,0 +1,38 @@
+apply plugin: 'android'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'ejerholamundo'
+            keyPassword 'ejerholamundo'
+            storeFile file('/Users/David/Dropbox/cosas_Alen/curso/android_keystore.jks')
+            storePassword 'cursoandroid'
+        }
+    }
+    compileSdkVersion 20
+    buildToolsVersion '20.0.0'
+    defaultConfig {
+        applicationId 'caride.holamundo'
+        minSdkVersion 15
+        targetSdkVersion 20
+        versionCode 1
+        versionName '1.0'
+    }
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable false
+            signingConfig signingConfigs.config
+        }
+        debug {
+            debuggable true
+        }
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
